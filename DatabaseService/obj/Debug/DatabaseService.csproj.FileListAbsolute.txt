@@ -1,0 +1,10 @@
+C:\Users\2LincUser\Documents\Visual Studio 2010\Projects\SmartORDeliverySolution\DatabaseService\bin\Debug\DatabaseService.dll
+C:\Users\2LincUser\Documents\Visual Studio 2010\Projects\SmartORDeliverySolution\DatabaseService\bin\Debug\DatabaseService.pdb
+C:\Users\2LincUser\Documents\Visual Studio 2010\Projects\SmartORDeliverySolution\DatabaseService\obj\Debug\DatabaseService.dll
+C:\Users\2LincUser\Documents\Visual Studio 2010\Projects\SmartORDeliverySolution\DatabaseService\obj\Debug\DatabaseService.pdb
+C:\Users\2LincUser\Documents\Visual Studio 2010\Projects\SmartORDeliverySolution\DatabaseService\obj\Debug\DatabaseService.csprojResolveAssemblyReference.cache
+C:\Users\admin\Desktop\SmartORDeliverySolution\DatabaseService\bin\Debug\DatabaseService.dll
+C:\Users\admin\Desktop\SmartORDeliverySolution\DatabaseService\bin\Debug\DatabaseService.pdb
+C:\Users\admin\Desktop\SmartORDeliverySolution\DatabaseService\obj\Debug\DatabaseService.csprojResolveAssemblyReference.cache
+C:\Users\admin\Desktop\SmartORDeliverySolution\DatabaseService\obj\Debug\DatabaseService.dll
+C:\Users\admin\Desktop\SmartORDeliverySolution\DatabaseService\obj\Debug\DatabaseService.pdb

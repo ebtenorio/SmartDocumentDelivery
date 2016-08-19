@@ -1,0 +1,10 @@
+C:\Users\2LincUser\Documents\Visual Studio 2010\Projects\SmartORDeliverySolution\SmartDocDeliveryLibrary\bin\Release\SmartDocDeliveryLibrary.dll
+C:\Users\2LincUser\Documents\Visual Studio 2010\Projects\SmartORDeliverySolution\SmartDocDeliveryLibrary\bin\Release\SmartDocDeliveryLibrary.pdb
+C:\Users\2LincUser\Documents\Visual Studio 2010\Projects\SmartORDeliverySolution\SmartDocDeliveryLibrary\obj\Release\SmartDocDeliveryLibrary.dll
+C:\Users\2LincUser\Documents\Visual Studio 2010\Projects\SmartORDeliverySolution\SmartDocDeliveryLibrary\obj\Release\SmartDocDeliveryLibrary.pdb
+C:\Users\2LincUser\Documents\Visual Studio 2010\Projects\SmartORDeliverySolution\SmartDocDeliveryLibrary\bin\Release\DatabaseService.dll
+C:\Users\2LincUser\Documents\Visual Studio 2010\Projects\SmartORDeliverySolution\SmartDocDeliveryLibrary\bin\Release\DatabaseService.pdb
+C:\Users\2LincUser\Documents\Visual Studio 2010\Projects\SmartORDeliverySolution\SmartDocDeliveryLibrary\bin\Release\NoodleExportLibrary.dll
+C:\Users\2LincUser\Documents\Visual Studio 2010\Projects\SmartORDeliverySolution\SmartDocDeliveryLibrary\bin\Release\NoodleExportLibrary.pdb
+C:\Users\2LincUser\Documents\Visual Studio 2010\Projects\SmartORDeliverySolution\SmartDocDeliveryLibrary\bin\Release\NoodleExportLibrary.xml
+C:\Users\2LincUser\Documents\Visual Studio 2010\Projects\SmartORDeliverySolution\SmartDocDeliveryLibrary\obj\Release\SmartDocDeliveryLibrary.csprojResolveAssemblyReference.cache
