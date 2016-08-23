@@ -22,3 +22,17 @@ C:\Users\admin\Desktop\SmartORDeliverySolution\SmartDocDeliveryLibrary\bin\Debug
 C:\Users\admin\Desktop\SmartORDeliverySolution\SmartDocDeliveryLibrary\obj\Debug\SmartDocDeliveryLibrary.csprojResolveAssemblyReference.cache
 C:\Users\admin\Desktop\SmartORDeliverySolution\SmartDocDeliveryLibrary\obj\Debug\SmartDocDeliveryLibrary.dll
 C:\Users\admin\Desktop\SmartORDeliverySolution\SmartDocDeliveryLibrary\obj\Debug\SmartDocDeliveryLibrary.pdb
+C:\Github Repos\SmartDocDelivery\SmartDocumentDelivery\SmartDocDeliveryLibrary\bin\Debug\SmartDocDeliveryLibrary.dll
+C:\Github Repos\SmartDocDelivery\SmartDocumentDelivery\SmartDocDeliveryLibrary\bin\Debug\SmartDocDeliveryLibrary.pdb
+C:\Github Repos\SmartDocDelivery\SmartDocumentDelivery\SmartDocDeliveryLibrary\bin\Debug\DatabaseService.dll
+C:\Github Repos\SmartDocDelivery\SmartDocumentDelivery\SmartDocDeliveryLibrary\bin\Debug\Microsoft.Office.Interop.Excel.dll
+C:\Github Repos\SmartDocDelivery\SmartDocumentDelivery\SmartDocDeliveryLibrary\bin\Debug\office.dll
+C:\Github Repos\SmartDocDelivery\SmartDocumentDelivery\SmartDocDeliveryLibrary\bin\Debug\Microsoft.Vbe.Interop.dll
+C:\Github Repos\SmartDocDelivery\SmartDocumentDelivery\SmartDocDeliveryLibrary\bin\Debug\DatabaseService.pdb
+C:\Github Repos\SmartDocDelivery\SmartDocumentDelivery\SmartDocDeliveryLibrary\bin\Debug\NoodleExportLibrary.pdb
+C:\Github Repos\SmartDocDelivery\SmartDocumentDelivery\SmartDocDeliveryLibrary\bin\Debug\NoodleExportLibrary.xml
+C:\Github Repos\SmartDocDelivery\SmartDocumentDelivery\SmartDocDeliveryLibrary\bin\Debug\Microsoft.Office.Interop.Excel.xml
+C:\Github Repos\SmartDocDelivery\SmartDocumentDelivery\SmartDocDeliveryLibrary\bin\Debug\office.xml
+C:\Github Repos\SmartDocDelivery\SmartDocumentDelivery\SmartDocDeliveryLibrary\obj\Debug\SmartDocDeliveryLibrary.csprojResolveAssemblyReference.cache
+C:\Github Repos\SmartDocDelivery\SmartDocumentDelivery\SmartDocDeliveryLibrary\obj\Debug\SmartDocDeliveryLibrary.dll
+C:\Github Repos\SmartDocDelivery\SmartDocumentDelivery\SmartDocDeliveryLibrary\obj\Debug\SmartDocDeliveryLibrary.pdb

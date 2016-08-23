@@ -8,3 +8,8 @@ C:\Users\admin\Desktop\SmartORDeliverySolution\DatabaseService\bin\Debug\Databas
 C:\Users\admin\Desktop\SmartORDeliverySolution\DatabaseService\obj\Debug\DatabaseService.csprojResolveAssemblyReference.cache
 C:\Users\admin\Desktop\SmartORDeliverySolution\DatabaseService\obj\Debug\DatabaseService.dll
 C:\Users\admin\Desktop\SmartORDeliverySolution\DatabaseService\obj\Debug\DatabaseService.pdb
+C:\Github Repos\SmartDocDelivery\SmartDocumentDelivery\DatabaseService\bin\Debug\DatabaseService.dll
+C:\Github Repos\SmartDocDelivery\SmartDocumentDelivery\DatabaseService\bin\Debug\DatabaseService.pdb
+C:\Github Repos\SmartDocDelivery\SmartDocumentDelivery\DatabaseService\obj\Debug\DatabaseService.csprojResolveAssemblyReference.cache
+C:\Github Repos\SmartDocDelivery\SmartDocumentDelivery\DatabaseService\obj\Debug\DatabaseService.dll
+C:\Github Repos\SmartDocDelivery\SmartDocumentDelivery\DatabaseService\obj\Debug\DatabaseService.pdb

@@ -51,7 +51,7 @@ namespace SmartORDeliveryLib
             _hasRec = false;
 
             var connectionString = string.Format(@"Provider=Microsoft.Jet.OLEDB.4.0; data source={0}; Extended Properties=Excel 8.0;", this.m_MainFolder + _pCycleFilename);
-            var adapter = new OleDbDataAdapter(String.Format(@"UPDATE [BatchDetails$] Set [Messenger]='{0}', [DispatchDate]='{1}', [Delivery Status]='Dispatched' where [Account No]='{2}'", _pMessenger, DateTime.Now.ToShortDateString (), Convert.ToChar(160) + _pAccountNo), connectionString);
+            var adapter = new OleDbDataAdapter(String.Format(@"UPDATE [Sheet1$] Set [RTS_Messenger]='{0}', [Dispatch Date]='{1}', [Delivery Status]='Dispatched' where [Account #]={2}", _pMessenger, DateTime.Now.ToShortDateString(), _pAccountNo), connectionString);
             var ds = new DataSet();
             adapter.Fill(ds, "TransactionTable");
             DataTable _data = ds.Tables["TransactionTable"];
@@ -63,14 +63,13 @@ namespace SmartORDeliveryLib
         public bool isFoundRecord(string _pAccountNo, string _pCycleFilename)
         {
             var connectionString = string.Format(@"Provider=Microsoft.Jet.OLEDB.4.0; data source={0}; Extended Properties=Excel 8.0;", this.m_MainFolder + _pCycleFilename);
-            var adapter = new OleDbDataAdapter(String.Format(@"SELECT * FROM [BatchDetails$] where [Account No]='{0}'", Convert.ToChar(160) + _pAccountNo), connectionString);
+            var adapter = new OleDbDataAdapter(String.Format(@"SELECT * FROM [Sheet1$] where [Account #]={0}", _pAccountNo), connectionString);
             var ds = new DataSet();
             adapter.Fill(ds, "TransactionTable");
             DataTable _data = ds.Tables["TransactionTable"];
 
             if (_data.Rows.Count > 0) return true;
             else return false;
-
 
         }
 

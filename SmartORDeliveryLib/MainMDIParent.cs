@@ -96,19 +96,20 @@ namespace SmartORDeliveryLib
 
         private void MainMDIParent_Load(object sender, EventArgs e)
         {
-            //if (DateTime.Now.Month == 5 && DateTime.Now.Day == 16)
-            //{
-            //    MessageBox.Show("TEST VERSION HAS EXPIRED." + Environment.NewLine + "Application will now close.", "Expired Version", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    this.Close();
-            //}
-            //else
-            //{
+
+            if (DateTime.Now.Month == 8 && DateTime.Now.Day == 23)
+            {
+                MessageBox.Show("TEST VERSION HAS EXPIRED." + Environment.NewLine + "Application will now close.", "Expired Version", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+            }
+            else
+            {
                 Main _mainForm = new Main();
 
                 _mainForm.StartPosition = FormStartPosition.CenterScreen;
 
                 _mainForm.ShowDialog();
-            //}
+            }
         }
 
         private void importCycleFilenameToolStripMenuItem_Click(object sender, EventArgs e)
@@ -151,7 +152,7 @@ namespace SmartORDeliveryLib
 
         private void updateDeliveryDocumentToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SmartDocDeliveryMainForm _DeliveryDocumentForm = new SmartDocDeliveryMainForm();
+            soaTextBox _DeliveryDocumentForm = new soaTextBox();
             
             _DeliveryDocumentForm.StartPosition = FormStartPosition.CenterScreen;
 
@@ -177,7 +178,7 @@ namespace SmartORDeliveryLib
 
         private void returnToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SmartDocDeliveryMainForm _DeliveryDetailsForm = new SmartDocDeliveryMainForm();
+            soaTextBox _DeliveryDetailsForm = new soaTextBox();
 
             _DeliveryDetailsForm.StartPosition = FormStartPosition.CenterScreen;
 

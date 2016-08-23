@@ -41,3 +41,27 @@ C:\Users\admin\Desktop\SmartORDeliverySolution\SmartORDeliveryLib\obj\x86\Debug\
 C:\Users\admin\Desktop\SmartORDeliverySolution\SmartORDeliveryLib\obj\x86\Debug\SmartORDeliveryLib.Properties.Resources.resources
 C:\Users\admin\Desktop\SmartORDeliverySolution\SmartORDeliveryLib\obj\x86\Debug\SmartORDeliveryLib.SmartDocDeliveryMainForm.resources
 C:\Users\admin\Desktop\SmartORDeliverySolution\SmartORDeliveryLib\obj\x86\Debug\SmartDocDeliveryClientApp.csproj.GenerateResource.Cache
+C:\Github Repos\SmartDocDelivery\SmartDocumentDelivery\SmartORDeliveryLib\bin\Debug\SmartORDeliveryClientApp.exe.config
+C:\Github Repos\SmartDocDelivery\SmartDocumentDelivery\SmartORDeliveryLib\obj\x86\Debug\SmartORDeliveryClientApp.exe
+C:\Github Repos\SmartDocDelivery\SmartDocumentDelivery\SmartORDeliveryLib\obj\x86\Debug\SmartORDeliveryClientApp.pdb
+C:\Github Repos\SmartDocDelivery\SmartDocumentDelivery\SmartORDeliveryLib\bin\Debug\SmartORDeliveryClientApp.exe
+C:\Github Repos\SmartDocDelivery\SmartDocumentDelivery\SmartORDeliveryLib\bin\Debug\SmartORDeliveryClientApp.pdb
+C:\Github Repos\SmartDocDelivery\SmartDocumentDelivery\SmartORDeliveryLib\bin\Debug\DatabaseService.dll
+C:\Github Repos\SmartDocDelivery\SmartDocumentDelivery\SmartORDeliveryLib\bin\Debug\SmartDocDeliveryLibrary.dll
+C:\Github Repos\SmartDocDelivery\SmartDocumentDelivery\SmartORDeliveryLib\bin\Debug\NoodleExportLibrary.dll
+C:\Github Repos\SmartDocDelivery\SmartDocumentDelivery\SmartORDeliveryLib\bin\Debug\Microsoft.Office.Interop.Excel.dll
+C:\Github Repos\SmartDocDelivery\SmartDocumentDelivery\SmartORDeliveryLib\bin\Debug\office.dll
+C:\Github Repos\SmartDocDelivery\SmartDocumentDelivery\SmartORDeliveryLib\bin\Debug\Microsoft.Vbe.Interop.dll
+C:\Github Repos\SmartDocDelivery\SmartDocumentDelivery\SmartORDeliveryLib\bin\Debug\DatabaseService.pdb
+C:\Github Repos\SmartDocDelivery\SmartDocumentDelivery\SmartORDeliveryLib\bin\Debug\SmartDocDeliveryLibrary.pdb
+C:\Github Repos\SmartDocDelivery\SmartDocumentDelivery\SmartORDeliveryLib\bin\Debug\NoodleExportLibrary.pdb
+C:\Github Repos\SmartDocDelivery\SmartDocumentDelivery\SmartORDeliveryLib\bin\Debug\NoodleExportLibrary.xml
+C:\Github Repos\SmartDocDelivery\SmartDocumentDelivery\SmartORDeliveryLib\bin\Debug\Microsoft.Office.Interop.Excel.xml
+C:\Github Repos\SmartDocDelivery\SmartDocumentDelivery\SmartORDeliveryLib\bin\Debug\office.xml
+C:\Github Repos\SmartDocDelivery\SmartDocumentDelivery\SmartORDeliveryLib\obj\x86\Debug\SmartORDeliveryLib.DispatchForm.resources
+C:\Github Repos\SmartDocDelivery\SmartDocumentDelivery\SmartORDeliveryLib\obj\x86\Debug\SmartORDeliveryLib.ExportForm.resources
+C:\Github Repos\SmartDocDelivery\SmartDocumentDelivery\SmartORDeliveryLib\obj\x86\Debug\SmartORDeliveryLib.Main.resources
+C:\Github Repos\SmartDocDelivery\SmartDocumentDelivery\SmartORDeliveryLib\obj\x86\Debug\SmartORDeliveryLib.MainMDIParent.resources
+C:\Github Repos\SmartDocDelivery\SmartDocumentDelivery\SmartORDeliveryLib\obj\x86\Debug\SmartORDeliveryLib.Properties.Resources.resources
+C:\Github Repos\SmartDocDelivery\SmartDocumentDelivery\SmartORDeliveryLib\obj\x86\Debug\SmartDocDeliveryClientApp.csproj.GenerateResource.Cache
+C:\Github Repos\SmartDocDelivery\SmartDocumentDelivery\SmartORDeliveryLib\obj\x86\Debug\SmartORDeliveryLib.soaTextBox.resources

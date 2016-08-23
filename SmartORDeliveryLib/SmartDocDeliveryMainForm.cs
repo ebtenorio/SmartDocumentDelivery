@@ -14,7 +14,7 @@ using System.IO;
 
 namespace SmartORDeliveryLib
 {
-    public partial class SmartDocDeliveryMainForm : Form
+    public partial class soaTextBox : Form
     {
         string m_ConnectionString = @SmartORDeliveryLib.Properties.Settings.Default.ConnectionStringSetting.ToString();
 
@@ -22,7 +22,7 @@ namespace SmartORDeliveryLib
 
         SmartDocDeliveryLib _SmartDocDeliveryService;
 
-        public SmartDocDeliveryMainForm()
+        public soaTextBox()
         {
             _SmartDocDeliveryService = new SmartDocDeliveryLib(this.m_ConnectionString);
 
@@ -33,7 +33,27 @@ namespace SmartORDeliveryLib
         {
             if (this.deliveryStatusComboBox.Text.ToUpper () != "SELECT DELIVERY STATUS")
             {
-                this.UpdateDetails(this.filesComboBox.SelectedValue.ToString(), this.accountNotextBox.Text, this.deliveryStatusComboBox.Text, this.receivedByTextBox.Text, this.relationshipTextBox.Text, this.messengerTextBox.Text, this.remarksTextBox.Text, this.RTSComboBox.Text);
+                this.UpdateDetails(this.filesComboBox.SelectedValue.ToString(),
+                    this.accountNotextBox.Text,
+                    this.receivedCheckBox.Checked,
+                    this.receivedDatedateTimePicker.Value,
+                    this.receivedByTextBox.Text,
+                    this.relationshipTextBox.Text, true, this.rtsDateTimePicker.Value,
+                    this.rtsReasonComboBox.Text,
+                    this.rtsMessengerTextBox.Text,
+                    this.rtsNewAddressTextBox.Text,
+                    this.remarksTextBox.Text);
+
+                // Clear fields
+                this.receivedCheckBox.Checked = false;
+                this.receivedDatedateTimePicker.Value = DateTime.Now;
+                this.receivedByTextBox.Text = "";
+                this.relationshipTextBox.Text = "";
+                this.rtsDateTimePicker.Value = DateTime.Now;
+                this.rtsReasonComboBox.Text = "";
+                this.rtsMessengerTextBox.Text = "";
+                this.rtsNewAddressTextBox.Text = "";
+                this.remarksTextBox.Text = "";
 
                 MessageBox.Show("Deliver details for Account No. " + this.accountNotextBox.Text + " updated successfully", "Update successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.deliveryStatusComboBox.SelectedIndex = 0;
@@ -58,7 +78,7 @@ namespace SmartORDeliveryLib
         public void GetDetailsFromExcel(string _pCycleFilename, string _pAccountNo, ref bool _pHasRecord)
         {
             var connectionString = string.Format(@"Provider=Microsoft.Jet.OLEDB.4.0; data source={0}; Extended Properties=Excel 8.0;", this.m_MainFolder + _pCycleFilename);          
-            var adapter = new OleDbDataAdapter(@"SELECT * FROM [BatchDetails$] where [Account No] ='" + Convert.ToChar(160) + _pAccountNo + "'", connectionString);
+            var adapter = new OleDbDataAdapter(@"SELECT * FROM [Sheet1$] where [Account #] =" + _pAccountNo + "", connectionString);
             var ds = new DataSet();
             adapter.Fill(ds, "TransactionTable");
             DataTable _data = ds.Tables["TransactionTable"];
@@ -66,40 +86,52 @@ namespace SmartORDeliveryLib
             if (_data.Rows.Count > 0)
             {
                 _pHasRecord = true;
-                this.deliveryNoTextBox.Text = _data.Rows[0]["Delivery No"].ToString();
-                this.sequenceNoTextBox.Text = _data.Rows[0]["Sequence No"].ToString();
-                //this.accountNotextBox.Text = _data.Rows[0]["Account No"].ToString();
-                this.fileNameTextBox.Text = _data.Rows[0]["FileName"].ToString();
-                this.subscribersNameTextBox.Text = _data.Rows[0]["Subscriber Name"].ToString();
-                this.addressTextBox.Text = _data.Rows[0]["Address"].ToString();
-                this.MINSRNTextBox.Text = _data.Rows[0]["MIN/SRN"].ToString();
-                this.brandTextBox.Text = _data.Rows[0]["Brand"].ToString();
-                this.zipCodeTextBox.Text = _data.Rows[0]["ZipCode"].ToString();
-                this.remarksTextBox.Text = _data.Rows[0]["Remarks"].ToString();
-                //this.deliveryStatusTextBox.Text = _data.Rows[0]["Delivery Status"].ToString();
-                this.deliveryStatusComboBox.Text = _data.Rows[0]["Delivery Status"].ToString();
-                this.receivedByTextBox.Text = _data.Rows[0]["Received By"].ToString();
-                this.relationshipTextBox.Text = _data.Rows[0]["Relationship"].ToString();
-                this.RTSNewAddressTextBox.Text = _data.Rows[0]["RTS New Address"].ToString();
-                //this.RTSReasonTextBox.Text = _data.Rows[0]["RTS Reason"].ToString();
+
+                //- SOA #
+                //- Account #
+                //- Billing Period
+                //- Account Name
+                //- Telephone #
+                //- Postal Code
+                //- Source_Filename
+
+                this.soaNoTextBox.Text = _data.Rows[0]["SOA #"].ToString();
+                this.accountNotextBox.Text = _data.Rows[0]["Account #"].ToString(); ;
+                this.billingPeriodNewTextBox.Text = _data.Rows[0]["Billing Period"].ToString(); ;
+                this.accountNameTextBox.Text = _data.Rows[0]["Account Name"].ToString(); ;
+                this.telephoneNoTextBox.Text = _data.Rows[0]["Telephone #"].ToString(); ;
+                this.zipCodeTextBox.Text = _data.Rows[0]["Postal Code"].ToString(); ;
+                this.sourceFileNameTextBox.Text = "Source_Filename";
 
 
-                if (_data.Rows[0]["RTS Reason"].ToString() != "")
-                {
-                    this.RTSComboBox.Text = _data.Rows[0]["RTS Reason"].ToString();
-                }
-
-                this.DCCodeTextBox.Text = _data.Rows[0]["DC Code"].ToString();
-                this.DCCNameTextBox.Text = _data.Rows[0]["DC Name"].ToString();
-                this.messengerTextBox.Text = _data.Rows[0]["Messenger"].ToString();
-                if (_data.Rows[0]["Delivery Status Date"] == DBNull.Value)
-                {
-                    this.dateDeliveredTimePicker.Value = DateTime.Now;
-                }
-                else
-                {
-                    this.dateDeliveredTimePicker.Value = DateTime.Parse(_data.Rows[0]["Delivery Status Date"].ToString());
-                }
+                //this.deliveryNoTextBox.Text = _data.Rows[0]["Delivery No"].ToString();
+                //this.sequenceNoTextBox.Text = _data.Rows[0]["Sequence No"].ToString();
+                //this.sourceFileNameTextBox.Text = _data.Rows[0]["FileName"].ToString();
+                //this.subscribersNameTextBox.Text = _data.Rows[0]["Subscriber Name"].ToString();
+                //this.addressTextBox.Text = _data.Rows[0]["Address"].ToString();
+                //this.MINSRNTextBox.Text = _data.Rows[0]["MIN/SRN"].ToString();
+                //this.brandTextBox.Text = _data.Rows[0]["Brand"].ToString();
+                //this.zipCodeTextBox.Text = _data.Rows[0]["ZipCode"].ToString();
+                //this.remarksTextBox.Text = _data.Rows[0]["Remarks"].ToString();
+                //this.deliveryStatusComboBox.Text = _data.Rows[0]["Delivery Status"].ToString();
+                //this.receivedByTextBox.Text = _data.Rows[0]["Received By"].ToString();
+                //this.relationshipTextBox.Text = _data.Rows[0]["Relationship"].ToString();
+                //this.rtsNewAddressTextBox.Text = _data.Rows[0]["RTS New Address"].ToString();
+                //if (_data.Rows[0]["RTS Reason"].ToString() != "")
+                //{
+                //    this.rtsReasonComboBox.Text = _data.Rows[0]["RTS Reason"].ToString();
+                //}
+                //this.DCCodeTextBox.Text = _data.Rows[0]["DC Code"].ToString();
+                //this.DCCNameTextBox.Text = _data.Rows[0]["DC Name"].ToString();
+                //this.rtsMessengerTextBox.Text = _data.Rows[0]["Messenger"].ToString();
+                //if (_data.Rows[0]["Delivery Status Date"] == DBNull.Value)
+                //{
+                //    this.rtsDateTimePicker.Value = DateTime.Now;
+                //}
+                //else
+                //{
+                //    this.rtsDateTimePicker.Value = DateTime.Parse(_data.Rows[0]["Delivery Status Date"].ToString());
+                //}
                 
             }
             else
@@ -108,37 +140,33 @@ namespace SmartORDeliveryLib
 
             }
         }
-    
 
-        public void UpdateDetails(string _pCycleFilename, string _pAccountNo, string _pDeliveryStatus, string _pReceivedBy, string _pRelationship, string _pMessenger, string _pRemarks, string _pRTSReason)
+        public void UpdateDetails(string _pCycleFilename, string _pAccountNo,
+                          bool _pIsReceived, DateTime _pReceivedDate, string _pReceivedBy, string _pRelationship, bool _pIsRTS,
+                          DateTime _pRTSDate, string _pRTSReason, string _pRTSMessenger, string _pRTSNewAddress, string _pRemarks)
         {
+
+            
             var connectionString = string.Format(@"Provider=Microsoft.Jet.OLEDB.4.0; data source={0}; Extended Properties=Excel 8.0;", this.m_MainFolder + _pCycleFilename);
-            var adapter = new OleDbDataAdapter(String.Format(@"UPDATE [BatchDetails$] Set [Delivery Status]='{0}', [Received By]='{1}', [Relationship]='{2}', [Messenger]='{3}', [Delivery Status Date]='{4}', [Remarks]='{5}', [RTS Reason]='{7}' where [Account No]='{6}'", _pDeliveryStatus, _pReceivedBy, _pRelationship, _pMessenger, this.dateDeliveredTimePicker.Value.ToShortDateString(), _pRemarks, Convert.ToChar(160) + _pAccountNo, _pRTSReason), connectionString);
+
+            var adapter = new OleDbDataAdapter();
+
+
+            if (this.receivedCheckBox.Checked)
+            {
+                adapter = new OleDbDataAdapter(String.Format(@"UPDATE [Sheet1$] Set Received={0}, [Received_Date]='{1}', [ReceivedBy]='{2}', [Relationship]='{3}', [RTS]={4}, [RTS_Date]='{5}', [RTS_Reason]='{6}', [RTS_Messenger]='{7}', [RTS_NewAddress]='{8}', [Remarks]='{9}' Where [Account #]={10}",
+                                                                                                    _pIsReceived.ToString(), _pReceivedDate.ToString("MM/dd/yyyy"), _pReceivedBy, _pRelationship, _pIsRTS.ToString(), _pRTSDate.ToShortDateString(), _pRTSReason, _pRTSMessenger, _pRTSNewAddress, _pRemarks.Trim(), _pAccountNo), connectionString);
+            }
+            else
+            {
+                adapter = new OleDbDataAdapter(String.Format(@"UPDATE [Sheet1$] Set [ReceivedBy]='{0}', [Relationship]='{1}', [RTS]={2}, [RTS_Date]='{3}', [RTS_Reason]='{4}', [RTS_Messenger]='{5}', [RTS_NewAddress]='{6}', [Remarks]='{7}' Where [Account #]={8}",
+                                                                                                    _pReceivedBy, _pRelationship, _pIsRTS.ToString(), _pRTSDate.ToShortDateString(), _pRTSReason, _pRTSMessenger, _pRTSNewAddress, _pRemarks.Trim(), _pAccountNo), connectionString);
+            }
+            
+
             var ds = new DataSet();
             adapter.Fill(ds, "TransactionTable");
             DataTable _data = ds.Tables["TransactionTable"];
-
-            this.deliveryNoTextBox.Text = "";
-            this.sequenceNoTextBox.Text = "";
-            this.accountNotextBox.Text = "";
-            this.fileNameTextBox.Text = "";
-            this.subscribersNameTextBox.Text = "";
-            this.addressTextBox.Text = "";
-            this.MINSRNTextBox.Text = "";
-            this.brandTextBox.Text = "";
-            this.zipCodeTextBox.Text = "";
-            this.remarksTextBox.Text = "";
-            //this.deliveryStatusTextBox.Text = "";
-            this.deliveryStatusComboBox.SelectedValue = "Select Delivery Status";
-            this.receivedByTextBox.Text = "";
-            this.relationshipTextBox.Text = "";
-            this.RTSNewAddressTextBox.Text = "";
-            //this.RTSReasonTextBox.Text = "";
-            this.RTSComboBox.SelectedIndex = 0;
-            this.DCCodeTextBox.Text = "";
-            this.DCCNameTextBox.Text = "";
-            this.messengerTextBox.Text = "";
-
 
         }
 
@@ -146,11 +174,11 @@ namespace SmartORDeliveryLib
         {
             if (this.deliveryStatusComboBox.SelectedValue.ToString().Trim().ToUpper() == "RTS")
             {
-                this.RTSComboBox.Enabled = true;
+                this.rtsReasonComboBox.Enabled = true;
             }
             else
             {
-                this.RTSComboBox.Enabled = false;
+                this.rtsReasonComboBox.Enabled = false;
                 
             }
         }
@@ -251,17 +279,34 @@ namespace SmartORDeliveryLib
         {
             if (this.deliveryStatusComboBox.Text.ToUpper() == "RTS")
             {
-                this.RTSComboBox.Enabled = true;
+                this.rtsReasonComboBox.Enabled = true;
             }
             else
             {
-                this.RTSComboBox.Enabled = false;
+                this.rtsReasonComboBox.Enabled = false;
             }
         }
 
         private void accountNotextBox_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void label21_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rtsReasonComboBox_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (this.rtsReasonComboBox.SelectedIndex != 0 && this.rtsReasonComboBox.SelectedIndex != 7)
+            {
+                this.remarksTextBox.Text = this.rtsReasonComboBox.Text.Substring(5, this.rtsReasonComboBox.Text.Length - 5);             
+            }
+            else
+            {
+                this.remarksTextBox.Clear();
+            }
         }
 
 
