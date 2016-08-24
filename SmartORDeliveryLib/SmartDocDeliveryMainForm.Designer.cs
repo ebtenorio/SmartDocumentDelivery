@@ -1,6 +1,6 @@
 ﻿namespace SmartORDeliveryLib
 {
-    partial class soaTextBox
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,6 @@
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.updateButton = new System.Windows.Forms.Button();
             this.rtsMessengerTextBox = new System.Windows.Forms.TextBox();
-            this.receivedByTextBox = new System.Windows.Forms.TextBox();
             this.relationshipTextBox = new System.Windows.Forms.TextBox();
             this.remarksTextBox = new System.Windows.Forms.TextBox();
             this.deliveryNoTextBox = new System.Windows.Forms.TextBox();
@@ -50,12 +49,12 @@
             this.billingPeriodNewTextBox = new System.Windows.Forms.TextBox();
             this.soaNoTextBox = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.rtsNewAddressTextBox = new System.Windows.Forms.TextBox();
             this.zipCodeTextBox = new System.Windows.Forms.TextBox();
             this.sourceFileNameTextBox = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.rtsNewAddressTextBox = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -73,20 +72,29 @@
             this.label17 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.accountNotextBox = new System.Windows.Forms.TextBox();
-            this.billingPeriodTextBox = new System.Windows.Forms.GroupBox();
-            this.receivedDatedateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.label25 = new System.Windows.Forms.Label();
+            this.rtsGroup = new System.Windows.Forms.GroupBox();
+            this.receivedByTextBox = new System.Windows.Forms.TextBox();
+            this.label28 = new System.Windows.Forms.Label();
             this.rtsReasonComboBox = new System.Windows.Forms.ComboBox();
-            this.deliveryStatusComboBox = new System.Windows.Forms.ComboBox();
             this.rtsDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
+            this.receivedDatedateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.label25 = new System.Windows.Forms.Label();
+            this.deliveryStatusComboBox = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.filesComboBox = new System.Windows.Forms.ComboBox();
             this.label20 = new System.Windows.Forms.Label();
-            this.receivedCheckBox = new System.Windows.Forms.CheckBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.receivedReleationshipTextBox = new System.Windows.Forms.TextBox();
+            this.receivedRemarksTextBox = new System.Windows.Forms.TextBox();
+            this.label27 = new System.Windows.Forms.Label();
+            this.receiveGroup = new System.Windows.Forms.GroupBox();
+            this.receivedByCombo = new System.Windows.Forms.ComboBox();
+            this.update2Button = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
-            this.billingPeriodTextBox.SuspendLayout();
+            this.rtsGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.receiveGroup.SuspendLayout();
             this.SuspendLayout();
             // 
             // openFileDialog
@@ -97,7 +105,7 @@
             // updateButton
             // 
             this.updateButton.Enabled = false;
-            this.updateButton.Location = new System.Drawing.Point(228, 291);
+            this.updateButton.Location = new System.Drawing.Point(228, 211);
             this.updateButton.Name = "updateButton";
             this.updateButton.Size = new System.Drawing.Size(154, 23);
             this.updateButton.TabIndex = 10;
@@ -107,21 +115,14 @@
             // 
             // rtsMessengerTextBox
             // 
-            this.rtsMessengerTextBox.Location = new System.Drawing.Point(125, 44);
+            this.rtsMessengerTextBox.Location = new System.Drawing.Point(125, 26);
             this.rtsMessengerTextBox.Name = "rtsMessengerTextBox";
             this.rtsMessengerTextBox.Size = new System.Drawing.Size(257, 20);
             this.rtsMessengerTextBox.TabIndex = 5;
             // 
-            // receivedByTextBox
-            // 
-            this.receivedByTextBox.Location = new System.Drawing.Point(125, 198);
-            this.receivedByTextBox.Name = "receivedByTextBox";
-            this.receivedByTextBox.Size = new System.Drawing.Size(257, 20);
-            this.receivedByTextBox.TabIndex = 9;
-            // 
             // relationshipTextBox
             // 
-            this.relationshipTextBox.Location = new System.Drawing.Point(125, 173);
+            this.relationshipTextBox.Location = new System.Drawing.Point(125, 133);
             this.relationshipTextBox.Name = "relationshipTextBox";
             this.relationshipTextBox.Size = new System.Drawing.Size(257, 20);
             this.relationshipTextBox.TabIndex = 8;
@@ -129,7 +130,7 @@
             // 
             // remarksTextBox
             // 
-            this.remarksTextBox.Location = new System.Drawing.Point(125, 250);
+            this.remarksTextBox.Location = new System.Drawing.Point(125, 185);
             this.remarksTextBox.Name = "remarksTextBox";
             this.remarksTextBox.Size = new System.Drawing.Size(257, 20);
             this.remarksTextBox.TabIndex = 10;
@@ -156,7 +157,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(18, 253);
+            this.label2.Location = new System.Drawing.Point(18, 188);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(49, 13);
             this.label2.TabIndex = 13;
@@ -165,7 +166,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(17, 125);
+            this.label3.Location = new System.Drawing.Point(420, 24);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(78, 13);
             this.label3.TabIndex = 14;
@@ -174,7 +175,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(18, 201);
+            this.label5.Location = new System.Drawing.Point(18, 52);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(68, 13);
             this.label5.TabIndex = 16;
@@ -183,7 +184,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(17, 176);
+            this.label6.Location = new System.Drawing.Point(17, 136);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(65, 13);
             this.label6.TabIndex = 17;
@@ -192,7 +193,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(17, 51);
+            this.label7.Location = new System.Drawing.Point(17, 33);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(84, 13);
             this.label7.TabIndex = 18;
@@ -288,15 +289,6 @@
             this.label21.Text = "SOA #";
             this.label21.Click += new System.EventHandler(this.label21_Click);
             // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(18, 227);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(95, 13);
-            this.label16.TabIndex = 39;
-            this.label16.Text = "RTS New Address";
-            // 
             // label15
             // 
             this.label15.AutoSize = true;
@@ -315,13 +307,6 @@
             this.label10.TabIndex = 33;
             this.label10.Text = "Source Filename";
             // 
-            // rtsNewAddressTextBox
-            // 
-            this.rtsNewAddressTextBox.Location = new System.Drawing.Point(125, 224);
-            this.rtsNewAddressTextBox.Name = "rtsNewAddressTextBox";
-            this.rtsNewAddressTextBox.Size = new System.Drawing.Size(257, 20);
-            this.rtsNewAddressTextBox.TabIndex = 28;
-            // 
             // zipCodeTextBox
             // 
             this.zipCodeTextBox.Enabled = false;
@@ -337,6 +322,22 @@
             this.sourceFileNameTextBox.Name = "sourceFileNameTextBox";
             this.sourceFileNameTextBox.Size = new System.Drawing.Size(257, 20);
             this.sourceFileNameTextBox.TabIndex = 22;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(18, 162);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(95, 13);
+            this.label16.TabIndex = 39;
+            this.label16.Text = "RTS New Address";
+            // 
+            // rtsNewAddressTextBox
+            // 
+            this.rtsNewAddressTextBox.Location = new System.Drawing.Point(125, 159);
+            this.rtsNewAddressTextBox.Name = "rtsNewAddressTextBox";
+            this.rtsNewAddressTextBox.Size = new System.Drawing.Size(257, 20);
+            this.rtsNewAddressTextBox.TabIndex = 28;
             // 
             // label19
             // 
@@ -475,7 +476,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(17, 151);
+            this.label17.Location = new System.Drawing.Point(17, 81);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(69, 13);
             this.label17.TabIndex = 40;
@@ -496,53 +497,47 @@
             this.accountNotextBox.Name = "accountNotextBox";
             this.accountNotextBox.Size = new System.Drawing.Size(257, 20);
             this.accountNotextBox.TabIndex = 11;
-            this.accountNotextBox.TextChanged += new System.EventHandler(this.accountNotextBox_TextChanged);
             this.accountNotextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.accountNotextBox_KeyPress);
             // 
-            // billingPeriodTextBox
+            // rtsGroup
             // 
-            this.billingPeriodTextBox.Controls.Add(this.receivedCheckBox);
-            this.billingPeriodTextBox.Controls.Add(this.receivedDatedateTimePicker);
-            this.billingPeriodTextBox.Controls.Add(this.label25);
-            this.billingPeriodTextBox.Controls.Add(this.rtsReasonComboBox);
-            this.billingPeriodTextBox.Controls.Add(this.deliveryStatusComboBox);
-            this.billingPeriodTextBox.Controls.Add(this.rtsDateTimePicker);
-            this.billingPeriodTextBox.Controls.Add(this.label4);
-            this.billingPeriodTextBox.Controls.Add(this.rtsMessengerTextBox);
-            this.billingPeriodTextBox.Controls.Add(this.label17);
-            this.billingPeriodTextBox.Controls.Add(this.label16);
-            this.billingPeriodTextBox.Controls.Add(this.label7);
-            this.billingPeriodTextBox.Controls.Add(this.updateButton);
-            this.billingPeriodTextBox.Controls.Add(this.label6);
-            this.billingPeriodTextBox.Controls.Add(this.rtsNewAddressTextBox);
-            this.billingPeriodTextBox.Controls.Add(this.receivedByTextBox);
-            this.billingPeriodTextBox.Controls.Add(this.label5);
-            this.billingPeriodTextBox.Controls.Add(this.relationshipTextBox);
-            this.billingPeriodTextBox.Controls.Add(this.remarksTextBox);
-            this.billingPeriodTextBox.Controls.Add(this.label3);
-            this.billingPeriodTextBox.Controls.Add(this.label2);
-            this.billingPeriodTextBox.Location = new System.Drawing.Point(416, 90);
-            this.billingPeriodTextBox.Name = "billingPeriodTextBox";
-            this.billingPeriodTextBox.Size = new System.Drawing.Size(394, 350);
-            this.billingPeriodTextBox.TabIndex = 20;
-            this.billingPeriodTextBox.TabStop = false;
-            this.billingPeriodTextBox.Text = "Update Details";
+            this.rtsGroup.Controls.Add(this.receivedByTextBox);
+            this.rtsGroup.Controls.Add(this.label28);
+            this.rtsGroup.Controls.Add(this.rtsReasonComboBox);
+            this.rtsGroup.Controls.Add(this.rtsDateTimePicker);
+            this.rtsGroup.Controls.Add(this.label4);
+            this.rtsGroup.Controls.Add(this.rtsMessengerTextBox);
+            this.rtsGroup.Controls.Add(this.label17);
+            this.rtsGroup.Controls.Add(this.label16);
+            this.rtsGroup.Controls.Add(this.label7);
+            this.rtsGroup.Controls.Add(this.updateButton);
+            this.rtsGroup.Controls.Add(this.label6);
+            this.rtsGroup.Controls.Add(this.rtsNewAddressTextBox);
+            this.rtsGroup.Controls.Add(this.relationshipTextBox);
+            this.rtsGroup.Controls.Add(this.remarksTextBox);
+            this.rtsGroup.Controls.Add(this.label2);
+            this.rtsGroup.Location = new System.Drawing.Point(416, 56);
+            this.rtsGroup.Name = "rtsGroup";
+            this.rtsGroup.Size = new System.Drawing.Size(394, 253);
+            this.rtsGroup.TabIndex = 20;
+            this.rtsGroup.TabStop = false;
+            this.rtsGroup.Text = "Update Details";
             // 
-            // receivedDatedateTimePicker
+            // receivedByTextBox
             // 
-            this.receivedDatedateTimePicker.Location = new System.Drawing.Point(125, 70);
-            this.receivedDatedateTimePicker.Name = "receivedDatedateTimePicker";
-            this.receivedDatedateTimePicker.Size = new System.Drawing.Size(257, 20);
-            this.receivedDatedateTimePicker.TabIndex = 43;
+            this.receivedByTextBox.Location = new System.Drawing.Point(125, 105);
+            this.receivedByTextBox.Name = "receivedByTextBox";
+            this.receivedByTextBox.Size = new System.Drawing.Size(257, 20);
+            this.receivedByTextBox.TabIndex = 50;
             // 
-            // label25
+            // label28
             // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(17, 77);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(79, 13);
-            this.label25.TabIndex = 42;
-            this.label25.Text = "Received Date";
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(18, 107);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(68, 13);
+            this.label28.TabIndex = 49;
+            this.label28.Text = "Received By";
             // 
             // rtsReasonComboBox
             // 
@@ -557,29 +552,16 @@
             "ISA - INSUFFICIENT ADDRESS",
             "UNA - UNLOCATED ADDRESS",
             "OTHERS"});
-            this.rtsReasonComboBox.Location = new System.Drawing.Point(125, 148);
+            this.rtsReasonComboBox.Location = new System.Drawing.Point(125, 78);
             this.rtsReasonComboBox.Name = "rtsReasonComboBox";
             this.rtsReasonComboBox.Size = new System.Drawing.Size(257, 21);
             this.rtsReasonComboBox.TabIndex = 7;
             this.rtsReasonComboBox.Text = "Select RTS Reason";
             this.rtsReasonComboBox.SelectedValueChanged += new System.EventHandler(this.rtsReasonComboBox_SelectedValueChanged);
             // 
-            // deliveryStatusComboBox
-            // 
-            this.deliveryStatusComboBox.FormattingEnabled = true;
-            this.deliveryStatusComboBox.Items.AddRange(new object[] {
-            "Select Delivery Status",
-            "RTS",
-            "Delivered"});
-            this.deliveryStatusComboBox.Location = new System.Drawing.Point(125, 122);
-            this.deliveryStatusComboBox.Name = "deliveryStatusComboBox";
-            this.deliveryStatusComboBox.Size = new System.Drawing.Size(257, 21);
-            this.deliveryStatusComboBox.TabIndex = 6;
-            this.deliveryStatusComboBox.SelectedIndexChanged += new System.EventHandler(this.deliveryStatusComboBox_SelectedIndexChanged);
-            // 
             // rtsDateTimePicker
             // 
-            this.rtsDateTimePicker.Location = new System.Drawing.Point(125, 96);
+            this.rtsDateTimePicker.Location = new System.Drawing.Point(125, 52);
             this.rtsDateTimePicker.Name = "rtsDateTimePicker";
             this.rtsDateTimePicker.Size = new System.Drawing.Size(257, 20);
             this.rtsDateTimePicker.TabIndex = 5;
@@ -587,11 +569,42 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(17, 102);
+            this.label4.Location = new System.Drawing.Point(17, 58);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(55, 13);
             this.label4.TabIndex = 41;
             this.label4.Text = "RTS Date";
+            // 
+            // receivedDatedateTimePicker
+            // 
+            this.receivedDatedateTimePicker.Location = new System.Drawing.Point(125, 19);
+            this.receivedDatedateTimePicker.Name = "receivedDatedateTimePicker";
+            this.receivedDatedateTimePicker.Size = new System.Drawing.Size(257, 20);
+            this.receivedDatedateTimePicker.TabIndex = 43;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(17, 26);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(79, 13);
+            this.label25.TabIndex = 42;
+            this.label25.Text = "Received Date";
+            // 
+            // deliveryStatusComboBox
+            // 
+            this.deliveryStatusComboBox.FormattingEnabled = true;
+            this.deliveryStatusComboBox.Items.AddRange(new object[] {
+            "Select Delivery Status",
+            "Delivered",
+            "Received",
+            "RTS"});
+            this.deliveryStatusComboBox.Location = new System.Drawing.Point(528, 21);
+            this.deliveryStatusComboBox.Name = "deliveryStatusComboBox";
+            this.deliveryStatusComboBox.Size = new System.Drawing.Size(257, 21);
+            this.deliveryStatusComboBox.TabIndex = 6;
+            this.deliveryStatusComboBox.Text = "Select Delivery Status";
+            this.deliveryStatusComboBox.SelectedIndexChanged += new System.EventHandler(this.deliveryStatusComboBox_SelectedIndexChanged);
             // 
             // dataGridView1
             // 
@@ -619,30 +632,100 @@
             this.label20.TabIndex = 33;
             this.label20.Text = "Cycle Filename";
             // 
-            // receivedCheckBox
+            // label26
             // 
-            this.receivedCheckBox.AutoSize = true;
-            this.receivedCheckBox.Location = new System.Drawing.Point(125, 19);
-            this.receivedCheckBox.Name = "receivedCheckBox";
-            this.receivedCheckBox.Size = new System.Drawing.Size(72, 17);
-            this.receivedCheckBox.TabIndex = 45;
-            this.receivedCheckBox.Text = "Received";
-            this.receivedCheckBox.UseVisualStyleBackColor = true;
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(17, 78);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(65, 13);
+            this.label26.TabIndex = 47;
+            this.label26.Text = "Relationship";
             // 
-            // soaTextBox
+            // receivedReleationshipTextBox
+            // 
+            this.receivedReleationshipTextBox.Location = new System.Drawing.Point(125, 71);
+            this.receivedReleationshipTextBox.Name = "receivedReleationshipTextBox";
+            this.receivedReleationshipTextBox.Size = new System.Drawing.Size(257, 20);
+            this.receivedReleationshipTextBox.TabIndex = 44;
+            this.receivedReleationshipTextBox.TextChanged += new System.EventHandler(this.receivedReleationshipTextBox_TextChanged);
+            // 
+            // receivedRemarksTextBox
+            // 
+            this.receivedRemarksTextBox.Location = new System.Drawing.Point(125, 97);
+            this.receivedRemarksTextBox.Name = "receivedRemarksTextBox";
+            this.receivedRemarksTextBox.Size = new System.Drawing.Size(257, 20);
+            this.receivedRemarksTextBox.TabIndex = 45;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(18, 104);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(49, 13);
+            this.label27.TabIndex = 46;
+            this.label27.Text = "Remarks";
+            // 
+            // receiveGroup
+            // 
+            this.receiveGroup.Controls.Add(this.receivedByCombo);
+            this.receiveGroup.Controls.Add(this.update2Button);
+            this.receiveGroup.Controls.Add(this.receivedDatedateTimePicker);
+            this.receiveGroup.Controls.Add(this.label26);
+            this.receiveGroup.Controls.Add(this.label5);
+            this.receiveGroup.Controls.Add(this.receivedReleationshipTextBox);
+            this.receiveGroup.Controls.Add(this.receivedRemarksTextBox);
+            this.receiveGroup.Controls.Add(this.label25);
+            this.receiveGroup.Controls.Add(this.label27);
+            this.receiveGroup.Location = new System.Drawing.Point(416, 316);
+            this.receiveGroup.Name = "receiveGroup";
+            this.receiveGroup.Size = new System.Drawing.Size(394, 160);
+            this.receiveGroup.TabIndex = 48;
+            this.receiveGroup.TabStop = false;
+            this.receiveGroup.Text = "Update Details";
+            // 
+            // receivedByCombo
+            // 
+            this.receivedByCombo.FormattingEnabled = true;
+            this.receivedByCombo.Items.AddRange(new object[] {
+            "Received By",
+            "Insert",
+            "Mailbox",
+            "Philpost",
+            "Recipient",
+            "Signature"});
+            this.receivedByCombo.Location = new System.Drawing.Point(125, 44);
+            this.receivedByCombo.Name = "receivedByCombo";
+            this.receivedByCombo.Size = new System.Drawing.Size(257, 21);
+            this.receivedByCombo.TabIndex = 42;
+            this.receivedByCombo.Text = "Received By";
+            // 
+            // update2Button
+            // 
+            this.update2Button.Enabled = false;
+            this.update2Button.Location = new System.Drawing.Point(228, 123);
+            this.update2Button.Name = "update2Button";
+            this.update2Button.Size = new System.Drawing.Size(154, 23);
+            this.update2Button.TabIndex = 48;
+            this.update2Button.Text = "Update";
+            this.update2Button.UseVisualStyleBackColor = true;
+            this.update2Button.Click += new System.EventHandler(this.update2Button_Click);
+            // 
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(822, 452);
+            this.ClientSize = new System.Drawing.Size(817, 492);
+            this.Controls.Add(this.receiveGroup);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.label20);
             this.Controls.Add(this.label18);
+            this.Controls.Add(this.deliveryStatusComboBox);
             this.Controls.Add(this.filesComboBox);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label14);
-            this.Controls.Add(this.billingPeriodTextBox);
+            this.Controls.Add(this.rtsGroup);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label12);
@@ -651,6 +734,7 @@
             this.Controls.Add(this.DCCNameTextBox);
             this.Controls.Add(this.accountNotextBox);
             this.Controls.Add(this.addressTextBox);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.DCCodeTextBox);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.sequenceNoTextBox);
@@ -661,16 +745,18 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "soaTextBox";
+            this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Return";
             this.Activated += new System.EventHandler(this.SmartDocDeliveryMainForm_Activated);
             this.Load += new System.EventHandler(this.SmartDocDeliveryMainForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.billingPeriodTextBox.ResumeLayout(false);
-            this.billingPeriodTextBox.PerformLayout();
+            this.rtsGroup.ResumeLayout(false);
+            this.rtsGroup.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.receiveGroup.ResumeLayout(false);
+            this.receiveGroup.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -681,7 +767,6 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.Button updateButton;
         private System.Windows.Forms.TextBox rtsMessengerTextBox;
-        private System.Windows.Forms.TextBox receivedByTextBox;
         private System.Windows.Forms.TextBox relationshipTextBox;
         private System.Windows.Forms.TextBox remarksTextBox;
         private System.Windows.Forms.TextBox deliveryNoTextBox;
@@ -703,7 +788,7 @@
         private System.Windows.Forms.TextBox DCCNameTextBox;
         private System.Windows.Forms.TextBox DCCodeTextBox;
         private System.Windows.Forms.TextBox rtsNewAddressTextBox;
-        private System.Windows.Forms.GroupBox billingPeriodTextBox;
+        private System.Windows.Forms.GroupBox rtsGroup;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label17;
@@ -733,7 +818,15 @@
         private System.Windows.Forms.TextBox accountNameTextBox;
         private System.Windows.Forms.DateTimePicker receivedDatedateTimePicker;
         private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.CheckBox receivedCheckBox;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.TextBox receivedReleationshipTextBox;
+        private System.Windows.Forms.TextBox receivedRemarksTextBox;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.GroupBox receiveGroup;
+        private System.Windows.Forms.Button update2Button;
+        private System.Windows.Forms.ComboBox receivedByCombo;
+        private System.Windows.Forms.TextBox receivedByTextBox;
+        private System.Windows.Forms.Label label28;
     }
 }
 

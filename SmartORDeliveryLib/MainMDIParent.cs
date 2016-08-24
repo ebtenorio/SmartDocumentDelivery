@@ -97,7 +97,7 @@ namespace SmartORDeliveryLib
         private void MainMDIParent_Load(object sender, EventArgs e)
         {
 
-            if (DateTime.Now.Month == 8 && DateTime.Now.Day == 23)
+            if (DateTime.Now.Month == 8 && DateTime.Now.Day == 26)
             {
                 MessageBox.Show("TEST VERSION HAS EXPIRED." + Environment.NewLine + "Application will now close.", "Expired Version", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.Close();
@@ -152,7 +152,7 @@ namespace SmartORDeliveryLib
 
         private void updateDeliveryDocumentToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            soaTextBox _DeliveryDocumentForm = new soaTextBox();
+            MainForm _DeliveryDocumentForm = new MainForm();
             
             _DeliveryDocumentForm.StartPosition = FormStartPosition.CenterScreen;
 
@@ -178,7 +178,7 @@ namespace SmartORDeliveryLib
 
         private void returnToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            soaTextBox _DeliveryDetailsForm = new soaTextBox();
+            MainForm _DeliveryDetailsForm = new MainForm();
 
             _DeliveryDetailsForm.StartPosition = FormStartPosition.CenterScreen;
 

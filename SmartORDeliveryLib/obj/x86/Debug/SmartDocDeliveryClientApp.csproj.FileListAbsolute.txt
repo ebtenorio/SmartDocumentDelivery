@@ -64,4 +64,4 @@ C:\Github Repos\SmartDocDelivery\SmartDocumentDelivery\SmartORDeliveryLib\obj\x8
 C:\Github Repos\SmartDocDelivery\SmartDocumentDelivery\SmartORDeliveryLib\obj\x86\Debug\SmartORDeliveryLib.MainMDIParent.resources
 C:\Github Repos\SmartDocDelivery\SmartDocumentDelivery\SmartORDeliveryLib\obj\x86\Debug\SmartORDeliveryLib.Properties.Resources.resources
 C:\Github Repos\SmartDocDelivery\SmartDocumentDelivery\SmartORDeliveryLib\obj\x86\Debug\SmartDocDeliveryClientApp.csproj.GenerateResource.Cache
-C:\Github Repos\SmartDocDelivery\SmartDocumentDelivery\SmartORDeliveryLib\obj\x86\Debug\SmartORDeliveryLib.soaTextBox.resources
+C:\Github Repos\SmartDocDelivery\SmartDocumentDelivery\SmartORDeliveryLib\obj\x86\Debug\SmartORDeliveryLib.MainForm.resources

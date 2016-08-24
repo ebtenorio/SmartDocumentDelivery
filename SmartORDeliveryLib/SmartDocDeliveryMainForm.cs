@@ -14,7 +14,7 @@ using System.IO;
 
 namespace SmartORDeliveryLib
 {
-    public partial class soaTextBox : Form
+    public partial class MainForm : Form
     {
         string m_ConnectionString = @SmartORDeliveryLib.Properties.Settings.Default.ConnectionStringSetting.ToString();
 
@@ -22,7 +22,7 @@ namespace SmartORDeliveryLib
 
         SmartDocDeliveryLib _SmartDocDeliveryService;
 
-        public soaTextBox()
+        public MainForm()
         {
             _SmartDocDeliveryService = new SmartDocDeliveryLib(this.m_ConnectionString);
 
@@ -31,33 +31,29 @@ namespace SmartORDeliveryLib
 
         private void button3_Click(object sender, EventArgs e)
         {
+            // RTS
             if (this.deliveryStatusComboBox.Text.ToUpper () != "SELECT DELIVERY STATUS")
             {
-                this.UpdateDetails(this.filesComboBox.SelectedValue.ToString(),
-                    this.accountNotextBox.Text,
-                    this.receivedCheckBox.Checked,
-                    this.receivedDatedateTimePicker.Value,
-                    this.receivedByTextBox.Text,
-                    this.relationshipTextBox.Text, true, this.rtsDateTimePicker.Value,
-                    this.rtsReasonComboBox.Text,
-                    this.rtsMessengerTextBox.Text,
-                    this.rtsNewAddressTextBox.Text,
-                    this.remarksTextBox.Text);
+
+                this.UpdateRTSDetails(this.filesComboBox.SelectedValue.ToString(),
+                   this.accountNotextBox.Text,
+                   this.rtsDateTimePicker.Value,
+                   this.rtsReasonComboBox.Text,
+                   this.rtsMessengerTextBox.Text,
+                   this.remarksTextBox.Text);
 
                 // Clear fields
-                this.receivedCheckBox.Checked = false;
+                
                 this.receivedDatedateTimePicker.Value = DateTime.Now;
-                this.receivedByTextBox.Text = "";
                 this.relationshipTextBox.Text = "";
                 this.rtsDateTimePicker.Value = DateTime.Now;
-                this.rtsReasonComboBox.Text = "";
+                this.rtsReasonComboBox.SelectedIndex = 0;
                 this.rtsMessengerTextBox.Text = "";
                 this.rtsNewAddressTextBox.Text = "";
                 this.remarksTextBox.Text = "";
 
-                MessageBox.Show("Deliver details for Account No. " + this.accountNotextBox.Text + " updated successfully", "Update successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Account No. " + this.accountNotextBox.Text + " updated successfully", "Update successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.deliveryStatusComboBox.SelectedIndex = 0;
-
                 this.accountNotextBox.Focus();
             }
             else
@@ -72,7 +68,8 @@ namespace SmartORDeliveryLib
         {
             this.filesComboBox.DataSource = this.GetFileNames();
             this.filesComboBox.Focus();
-
+            this.rtsGroup.Location = new Point(2000, 1000);
+            this.receiveGroup.Location = new Point(2000, 1000);
         }
 
         public void GetDetailsFromExcel(string _pCycleFilename, string _pAccountNo, ref bool _pHasRecord)
@@ -107,7 +104,7 @@ namespace SmartORDeliveryLib
                 //this.deliveryNoTextBox.Text = _data.Rows[0]["Delivery No"].ToString();
                 //this.sequenceNoTextBox.Text = _data.Rows[0]["Sequence No"].ToString();
                 //this.sourceFileNameTextBox.Text = _data.Rows[0]["FileName"].ToString();
-                //this.subscribersNameTextBox.Text = _data.Rows[0]["Subscriber Name"].ToString();
+                this.subscribersNameTextBox.Text = _data.Rows[0]["Account Name"].ToString();
                 //this.addressTextBox.Text = _data.Rows[0]["Address"].ToString();
                 //this.MINSRNTextBox.Text = _data.Rows[0]["MIN/SRN"].ToString();
                 //this.brandTextBox.Text = _data.Rows[0]["Brand"].ToString();
@@ -141,33 +138,22 @@ namespace SmartORDeliveryLib
             }
         }
 
-        public void UpdateDetails(string _pCycleFilename, string _pAccountNo,
-                          bool _pIsReceived, DateTime _pReceivedDate, string _pReceivedBy, string _pRelationship, bool _pIsRTS,
-                          DateTime _pRTSDate, string _pRTSReason, string _pRTSMessenger, string _pRTSNewAddress, string _pRemarks)
+        public void UpdateReceivedDetails(String _pCycleFilename, String _pAccountNo, DateTime _pReceiveDate, String _pReceivedBy, String _pRelationship, String _pRemarks)
         {
-
-            
             var connectionString = string.Format(@"Provider=Microsoft.Jet.OLEDB.4.0; data source={0}; Extended Properties=Excel 8.0;", this.m_MainFolder + _pCycleFilename);
-
-            var adapter = new OleDbDataAdapter();
-
-
-            if (this.receivedCheckBox.Checked)
-            {
-                adapter = new OleDbDataAdapter(String.Format(@"UPDATE [Sheet1$] Set Received={0}, [Received_Date]='{1}', [ReceivedBy]='{2}', [Relationship]='{3}', [RTS]={4}, [RTS_Date]='{5}', [RTS_Reason]='{6}', [RTS_Messenger]='{7}', [RTS_NewAddress]='{8}', [Remarks]='{9}' Where [Account #]={10}",
-                                                                                                    _pIsReceived.ToString(), _pReceivedDate.ToString("MM/dd/yyyy"), _pReceivedBy, _pRelationship, _pIsRTS.ToString(), _pRTSDate.ToShortDateString(), _pRTSReason, _pRTSMessenger, _pRTSNewAddress, _pRemarks.Trim(), _pAccountNo), connectionString);
-            }
-            else
-            {
-                adapter = new OleDbDataAdapter(String.Format(@"UPDATE [Sheet1$] Set [ReceivedBy]='{0}', [Relationship]='{1}', [RTS]={2}, [RTS_Date]='{3}', [RTS_Reason]='{4}', [RTS_Messenger]='{5}', [RTS_NewAddress]='{6}', [Remarks]='{7}' Where [Account #]={8}",
-                                                                                                    _pReceivedBy, _pRelationship, _pIsRTS.ToString(), _pRTSDate.ToShortDateString(), _pRTSReason, _pRTSMessenger, _pRTSNewAddress, _pRemarks.Trim(), _pAccountNo), connectionString);
-            }
-            
-
+            var adapter = new OleDbDataAdapter(String.Format(@"UPDATE [Sheet1$] Set [Received]='TRUE', [RTS]='FALSE', [Received_Date]='{0}', [ReceivedBy]='{1}', [Relationship]='{2}', [Remarks]='{3}' Where [Account #]={4}", _pReceiveDate.ToShortDateString(), _pReceivedBy, _pRelationship,_pRemarks, _pAccountNo), connectionString);
             var ds = new DataSet();
             adapter.Fill(ds, "TransactionTable");
             DataTable _data = ds.Tables["TransactionTable"];
+        }
 
+        public void UpdateRTSDetails(String _pCycleFilename, String _pAccountNo, DateTime _pRTSDate, String _pRTSReason, String _pRTSMessenger, String _pRTSRemarks)
+        {
+            var connectionString = string.Format(@"Provider=Microsoft.Jet.OLEDB.4.0; data source={0}; Extended Properties=Excel 8.0;", this.m_MainFolder + _pCycleFilename);
+            var adapter = new OleDbDataAdapter(String.Format(@"UPDATE [Sheet1$] Set [Received]='FALSE', [RTS]='TRUE', [RTS_Date]='{0}', [RTS_Reason]='{1}', [RTS_Messenger]='{2}', [Remarks]='{3}' Where [Account #]={5}", _pRTSDate.ToShortDateString(), _pRTSReason, _pRTSMessenger, _pRTSMessenger, _pRTSRemarks, _pAccountNo), connectionString);
+            var ds = new DataSet();
+            adapter.Fill(ds, "TransactionTable");
+            DataTable _data = ds.Tables["TransactionTable"];
         }
 
         private void deliveryStatusTextBox_TextChanged(object sender, EventArgs e)
@@ -196,9 +182,6 @@ namespace SmartORDeliveryLib
             {
                 _resultList.Add(Path.GetFileName(files[i]));
             }
-
-            
-           
 
             return _resultList;
             
@@ -232,10 +215,9 @@ namespace SmartORDeliveryLib
 
                     if (_hasRecord)
                     {
-                        // this.deliveryStatusTextBox.SelectAll();
-                        // this.deliveryStatusTextBox.Focus();
                         this.deliveryStatusComboBox.Focus();
                         this.updateButton.Enabled = true;
+                        this.update2Button.Enabled = true;
                     }
                     else
                     {
@@ -280,17 +262,23 @@ namespace SmartORDeliveryLib
             if (this.deliveryStatusComboBox.Text.ToUpper() == "RTS")
             {
                 this.rtsReasonComboBox.Enabled = true;
+                this.rtsGroup.Location = new Point(416, 56);
+                this.receiveGroup.Location = new Point(2000, 1000);
+            }
+            else if (this.deliveryStatusComboBox.Text.ToUpper() == "DELIVERED"){
+                this.rtsGroup.Location = new Point(416, 56);
+                this.receiveGroup.Location = new Point(2000, 1000);
             }
             else
             {
+                this.rtsGroup.Location = new Point(2000, 1000);
+                this.receiveGroup.Location = new Point(416, 56); 
+
                 this.rtsReasonComboBox.Enabled = false;
             }
-        }
-
-        private void accountNotextBox_TextChanged(object sender, EventArgs e)
-        {
 
         }
+
 
         private void label21_Click(object sender, EventArgs e)
         {
@@ -301,14 +289,47 @@ namespace SmartORDeliveryLib
         {
             if (this.rtsReasonComboBox.SelectedIndex != 0 && this.rtsReasonComboBox.SelectedIndex != 7)
             {
-                this.remarksTextBox.Text = this.rtsReasonComboBox.Text.Substring(5, this.rtsReasonComboBox.Text.Length - 5);             
+                this.remarksTextBox.Text = this.rtsReasonComboBox.Text.Substring(5, this.rtsReasonComboBox.Text.Length - 5);
             }
             else
             {
                 this.remarksTextBox.Clear();
             }
+            
         }
 
+        private void update2Button_Click(object sender, EventArgs e)
+        {
+            this.UpdateReceivedDetails(this.filesComboBox.SelectedValue.ToString(),
+                   this.accountNotextBox.Text,
+                   this.receivedDatedateTimePicker.Value,
+                   this.receivedByCombo.Text,
+                   this.receivedReleationshipTextBox.Text,
+                   this.receivedRemarksTextBox.Text);
+
+            // Clear
+            this.receivedDatedateTimePicker.Value = DateTime.Now;
+            this.receivedByCombo.SelectedIndex = 0;
+            this.receivedReleationshipTextBox.Text = "";
+            this.receivedRemarksTextBox.Text = "";
+
+            MessageBox.Show("Account No. " + this.accountNotextBox.Text + " updated successfully", "Update successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.deliveryStatusComboBox.SelectedIndex = 0;
+            this.accountNotextBox.Focus();
+
+        }
+
+        private void receivedReleationshipTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (this.receivedReleationshipTextBox.Text.ToUpper().Trim() == "OWNER")
+            {
+                this.receivedRemarksTextBox.Text = this.subscribersNameTextBox.Text;
+            }
+            else
+            {
+                this.receivedRemarksTextBox.Text = "";
+            }
+        }
 
     }
 }

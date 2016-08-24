@@ -169,7 +169,7 @@ namespace SmartORDeliveryLib
 
         private void button2_Click(object sender, EventArgs e)
         {
-            soaTextBox _DeliveryDetailsForm = new soaTextBox();
+            MainForm _DeliveryDetailsForm = new MainForm();
 
             _DeliveryDetailsForm.StartPosition = FormStartPosition.CenterScreen;
 
