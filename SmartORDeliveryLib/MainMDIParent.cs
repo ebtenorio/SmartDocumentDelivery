@@ -97,7 +97,7 @@ namespace SmartORDeliveryLib
         private void MainMDIParent_Load(object sender, EventArgs e)
         {
 
-            if (DateTime.Now.Month == 8 && DateTime.Now.Day == 26)
+            if (DateTime.Now.Month == 8 && DateTime.Now.Day == 27)
             {
                 MessageBox.Show("TEST VERSION HAS EXPIRED." + Environment.NewLine + "Application will now close.", "Expired Version", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.Close();

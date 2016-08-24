@@ -194,7 +194,15 @@ public class SmartDocDeliveryService
 
             var connectionString = string.Format("Provider=Microsoft.Jet.OLEDB.4.0; data source={0}; Extended Properties=Excel 8.0;", fileName);
 
-            var adapter = new OleDbDataAdapter("SELECT * FROM [BatchDetails$]", connectionString);
+            string _firstSheet;
+            using (OleDbConnection conn = new OleDbConnection(connectionString))
+            {
+                conn.Open();
+                DataTable dtSchema = conn.GetOleDbSchemaTable(OleDbSchemaGuid.Tables, new object[] { null, null, null, "TABLE" });
+                _firstSheet = dtSchema.Rows[0].Field<string>("TABLE_NAME");
+            }
+
+            var adapter = new OleDbDataAdapter("SELECT * FROM [" + _firstSheet + "]", connectionString);
 
             var ds = new DataSet();
 

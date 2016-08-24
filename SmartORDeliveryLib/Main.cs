@@ -78,7 +78,16 @@ namespace SmartORDeliveryLib
         private void GetContentByCycle(string _pCycleFilename)
         {
             var connectionString = string.Format(@"Provider=Microsoft.Jet.OLEDB.4.0; data source={0}; Extended Properties=Excel 8.0;", this.m_MainFolder + _pCycleFilename);
-            var adapter = new OleDbDataAdapter(@"SELECT * FROM [Sheet1$]", connectionString);
+
+            string _firstSheet;
+            using (OleDbConnection conn = new OleDbConnection(connectionString))
+            {
+                conn.Open();
+                DataTable dtSchema = conn.GetOleDbSchemaTable(OleDbSchemaGuid.Tables, new object[] { null, null, null, "TABLE" });
+                _firstSheet = dtSchema.Rows[0].Field<string>("TABLE_NAME");
+            }
+
+            var adapter = new OleDbDataAdapter(@"SELECT * FROM [" + _firstSheet + "]", connectionString);
             var ds = new DataSet();
             adapter.Fill(ds, "TransactionTable");
             DataTable _data = ds.Tables["TransactionTable"];
@@ -95,7 +104,16 @@ namespace SmartORDeliveryLib
         private void GetContentByAccountNoAndCycleFile(string _pAccountNo, string _pCycleFilename)
         {
             var connectionString = string.Format(@"Provider=Microsoft.Jet.OLEDB.4.0; data source={0}; Extended Properties=Excel 8.0;", this.m_MainFolder + _pCycleFilename);
-            var adapter = new OleDbDataAdapter(@"SELECT * FROM [Sheet1$] where [Account #] =" + _pAccountNo + "", connectionString);
+
+            string _firstSheet;
+            using (OleDbConnection conn = new OleDbConnection(connectionString))
+            {
+                conn.Open();
+                DataTable dtSchema = conn.GetOleDbSchemaTable(OleDbSchemaGuid.Tables, new object[] { null, null, null, "TABLE" });
+                _firstSheet = dtSchema.Rows[0].Field<string>("TABLE_NAME");
+            }
+
+            var adapter = new OleDbDataAdapter(@"SELECT * FROM [" + _firstSheet + "] where [Account #] =" + _pAccountNo + "", connectionString);
             var ds = new DataSet();
             adapter.Fill(ds, "TransactionTable");
             DataTable _data = ds.Tables["TransactionTable"];
@@ -111,7 +129,16 @@ namespace SmartORDeliveryLib
         private void GetContentDispatchDate(DateTime _pDispatchDate, string _pCycleFilename)
         {
             var connectionString = string.Format(@"Provider=Microsoft.Jet.OLEDB.4.0; data source={0}; Extended Properties=Excel 8.0;", this.m_MainFolder + _pCycleFilename);
-            var adapter = new OleDbDataAdapter(@"SELECT * FROM [Sheet1$] where [DispatchDate] ='" + _pDispatchDate.ToShortDateString() + "'", connectionString);
+
+            string _firstSheet;
+            using (OleDbConnection conn = new OleDbConnection(connectionString))
+            {
+                conn.Open();
+                DataTable dtSchema = conn.GetOleDbSchemaTable(OleDbSchemaGuid.Tables, new object[] { null, null, null, "TABLE" });
+                _firstSheet = dtSchema.Rows[0].Field<string>("TABLE_NAME");
+            }
+
+            var adapter = new OleDbDataAdapter(@"SELECT * FROM [" + _firstSheet + "] where [DispatchDate] ='" + _pDispatchDate.ToShortDateString() + "'", connectionString);
             var ds = new DataSet();
             adapter.Fill(ds, "TransactionTable");
             DataTable _data = ds.Tables["TransactionTable"];
