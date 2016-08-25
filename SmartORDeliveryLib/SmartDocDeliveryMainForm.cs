@@ -42,10 +42,6 @@ namespace SmartORDeliveryLib
                    this.rtsMessengerTextBox.Text,
                    this.remarksTextBox.Text);
 
-                // Clear fields                
-                //this.receivedDatedateTimePicker.Value = DateTime.Now;
-                //this.relationshipTextBox.Text = "";
-                //this.rtsDateTimePicker.Value = DateTime.Now;
                 this.rtsReasonComboBox.SelectedIndex = 0;
                 //this.rtsMessengerTextBox.Text = "";
                 //this.rtsNewAddressTextBox.Text = "";
@@ -108,21 +104,21 @@ namespace SmartORDeliveryLib
                 bool hasReceivedUpdate = false;
                 if (_data.Rows[0]["Received_Date"].ToString().Trim() == "")
                 {
-                    this.receivedDatedateTimePicker.Value = DateTime.Now;
+                    //this.receivedDatedateTimePicker.Value = DateTime.Now;
                 }
                 else
                 {
-                    this.receivedDatedateTimePicker.Value = Convert.ToDateTime(_data.Rows[0]["Received_Date"].ToString().Trim());
+                    // this.receivedDatedateTimePicker.Value = Convert.ToDateTime(_data.Rows[0]["Received_Date"].ToString().Trim());
                     hasReceivedUpdate = true;
                 }
 
                 if (_data.Rows[0]["ReceivedBy"].ToString().Trim() == "")
                 {
-                    this.receivedByCombo.SelectedIndex = 0;
+                    //this.receivedByCombo.SelectedIndex = 0;
                 }
                 else
                 {
-                    this.receivedByCombo.Text = _data.Rows[0]["ReceivedBy"].ToString().Trim();
+                    //this.receivedByCombo.Text = _data.Rows[0]["ReceivedBy"].ToString().Trim();
                     hasReceivedUpdate = true;
                 }
 
@@ -384,9 +380,7 @@ namespace SmartORDeliveryLib
                    this.receivedReleationshipTextBox.Text,
                    this.receivedRemarksTextBox.Text);
 
-            // Clear
-            //this.receivedDatedateTimePicker.Value = DateTime.Now;
-            //this.receivedByCombo.SelectedIndex = 0;
+            // Clear           
             this.receivedReleationshipTextBox.Text = "";
             this.receivedRemarksTextBox.Text = "";
 
