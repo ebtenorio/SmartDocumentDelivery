@@ -24,21 +24,63 @@ namespace SmartORDeliveryLib
 
         private void messenger_KeyPress(object sender, KeyPressEventArgs e)
         {
+            //dito 
+            if (Convert.ToInt32(e.KeyChar) == 13)
+            {
+                if (filesComboBox.SelectedIndex != 0)
+                {
+
+                    var connectionString = string.Format(@"Provider=Microsoft.Jet.OLEDB.4.0; data source={0}; Extended Properties=Excel 8.0;", this.m_MainFolder + filesComboBox.Text);
+
+                    string _firstSheet;
+                    using (OleDbConnection conn = new OleDbConnection(connectionString))
+                    {
+                        conn.Open();
+                        DataTable dtSchema = conn.GetOleDbSchemaTable(OleDbSchemaGuid.Tables, new object[] { null, null, null, "TABLE" });
+                        _firstSheet = dtSchema.Rows[0].Field<string>("TABLE_NAME");
+                    }
+
+                    var adapter = new OleDbDataAdapter(String.Format(@"SELECT * FROM [" + _firstSheet + "] WHERE [Delivery Status]='Dispatched' and [Messenger]='{0}'", this.messenger.Text), connectionString);
+                    var ds = new DataSet();
+                    adapter.Fill(ds, "TransactionTable");
+                    DataTable _data = ds.Tables["TransactionTable"];
+
+                    this.dispatchedCountLabel.Text = _data.Rows.Count.ToString();
+
+                    this.accountNoTextBox.Focus();
+                }
+                else
+                {
+                    MessageBox.Show("Please select filename.", "No selected filename", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    this.filesComboBox.Focus();
+                }
+            }
         }
 
         private void accountNoTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Convert.ToInt32(e.KeyChar) == 13)
             {
-                if (!(this.accountNoTextBox.Text.Trim() == "") && !(this.messenger.Text.Trim() == ""))
+                float output;
+
+                if (float.TryParse(this.accountNoTextBox.Text.Trim(), out output))
                 {
-                    this.accountNoListBox.Items.Add(this.accountNoTextBox.Text);
-                    this.accountNoTextBox.Text = "";
-                    this.accountNoTextBox.Focus();
+
+
+                    if (!(this.accountNoTextBox.Text.Trim() == "") && !(this.messenger.Text.Trim() == ""))
+                    {
+                        this.accountNoListBox.Items.Add(this.accountNoTextBox.Text);
+                        this.accountNoTextBox.Text = "";
+                        this.accountNoTextBox.Focus();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please supply both details: Messenger and Delivery No.", "Supply details", MessageBoxButtons.OK, MessageBoxIcon.None);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Please supply both details: Messenger and Delivery No.", "Supply details", MessageBoxButtons.OK, MessageBoxIcon.None);
+                    MessageBox.Show("Please check Account No.", "Supply details", MessageBoxButtons.OK, MessageBoxIcon.None);
                 }
 
             }
@@ -95,6 +137,7 @@ namespace SmartORDeliveryLib
         private void DispatchForm_Load(object sender, EventArgs e)
         {
             this.filesComboBox.DataSource = this.GetFileNames();
+            
         }
 
         private void updateButton_Click(object sender, EventArgs e)
@@ -156,6 +199,46 @@ namespace SmartORDeliveryLib
         private void cancelButton_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void messenger_TextChanged(object sender, EventArgs e)
+        {
+
+            //if (filesComboBox.SelectedIndex != 0)
+            //{
+
+            //    var connectionString = string.Format(@"Provider=Microsoft.Jet.OLEDB.4.0; data source={0}; Extended Properties=Excel 8.0;", this.m_MainFolder + filesComboBox.Text);
+
+            //    string _firstSheet;
+            //    using (OleDbConnection conn = new OleDbConnection(connectionString))
+            //    {
+            //        conn.Open();
+            //        DataTable dtSchema = conn.GetOleDbSchemaTable(OleDbSchemaGuid.Tables, new object[] { null, null, null, "TABLE" });
+            //        _firstSheet = dtSchema.Rows[0].Field<string>("TABLE_NAME");
+            //    }
+
+            //    var adapter = new OleDbDataAdapter(String.Format(@"SELECT * FROM [" + _firstSheet + "] WHERE [Delivery Status]='Dispatched' and [Messenger]='{0}'", this.messenger.Text), connectionString);
+            //    var ds = new DataSet();
+            //    adapter.Fill(ds, "TransactionTable");
+            //    DataTable _data = ds.Tables["TransactionTable"];
+
+            //    this.dispatchedCountLabel.Text = _data.Rows.Count.ToString();
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Please select filename.", "No selected filename", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            //    this.filesComboBox.Focus();
+            //}
+        }
+
+        private void messenger_Leave(object sender, EventArgs e)
+        {
+        }
+
+        private void DispatchForm_Activated(object sender, EventArgs e)
+        {
+
+            this.filesComboBox.Focus();
         }
 
 

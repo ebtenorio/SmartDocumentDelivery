@@ -29,10 +29,7 @@ C:\Github Repos\SmartDocDelivery\SmartDocumentDelivery\SmartDocDeliveryLibrary\b
 C:\Github Repos\SmartDocDelivery\SmartDocumentDelivery\SmartDocDeliveryLibrary\bin\Debug\office.dll
 C:\Github Repos\SmartDocDelivery\SmartDocumentDelivery\SmartDocDeliveryLibrary\bin\Debug\Microsoft.Vbe.Interop.dll
 C:\Github Repos\SmartDocDelivery\SmartDocumentDelivery\SmartDocDeliveryLibrary\bin\Debug\DatabaseService.pdb
-C:\Github Repos\SmartDocDelivery\SmartDocumentDelivery\SmartDocDeliveryLibrary\bin\Debug\NoodleExportLibrary.pdb
-C:\Github Repos\SmartDocDelivery\SmartDocumentDelivery\SmartDocDeliveryLibrary\bin\Debug\NoodleExportLibrary.xml
 C:\Github Repos\SmartDocDelivery\SmartDocumentDelivery\SmartDocDeliveryLibrary\bin\Debug\Microsoft.Office.Interop.Excel.xml
 C:\Github Repos\SmartDocDelivery\SmartDocumentDelivery\SmartDocDeliveryLibrary\bin\Debug\office.xml
-C:\Github Repos\SmartDocDelivery\SmartDocumentDelivery\SmartDocDeliveryLibrary\obj\Debug\SmartDocDeliveryLibrary.csprojResolveAssemblyReference.cache
 C:\Github Repos\SmartDocDelivery\SmartDocumentDelivery\SmartDocDeliveryLibrary\obj\Debug\SmartDocDeliveryLibrary.dll
 C:\Github Repos\SmartDocDelivery\SmartDocumentDelivery\SmartDocDeliveryLibrary\obj\Debug\SmartDocDeliveryLibrary.pdb

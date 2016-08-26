@@ -37,6 +37,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.filesComboBox = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.dispatchedCountLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // messenger
@@ -44,12 +46,14 @@
             this.messenger.Location = new System.Drawing.Point(99, 55);
             this.messenger.Name = "messenger";
             this.messenger.Size = new System.Drawing.Size(330, 20);
-            this.messenger.TabIndex = 0;
+            this.messenger.TabIndex = 1;
+            this.messenger.TextChanged += new System.EventHandler(this.messenger_TextChanged);
             this.messenger.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.messenger_KeyPress);
+            this.messenger.Leave += new System.EventHandler(this.messenger_Leave);
             // 
             // accountNoTextBox
             // 
-            this.accountNoTextBox.Location = new System.Drawing.Point(99, 81);
+            this.accountNoTextBox.Location = new System.Drawing.Point(99, 106);
             this.accountNoTextBox.Name = "accountNoTextBox";
             this.accountNoTextBox.Size = new System.Drawing.Size(330, 20);
             this.accountNoTextBox.TabIndex = 1;
@@ -58,14 +62,14 @@
             // accountNoListBox
             // 
             this.accountNoListBox.FormattingEnabled = true;
-            this.accountNoListBox.Location = new System.Drawing.Point(99, 107);
+            this.accountNoListBox.Location = new System.Drawing.Point(99, 132);
             this.accountNoListBox.Name = "accountNoListBox";
             this.accountNoListBox.Size = new System.Drawing.Size(330, 251);
             this.accountNoListBox.TabIndex = 2;
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(354, 364);
+            this.cancelButton.Location = new System.Drawing.Point(354, 389);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
             this.cancelButton.TabIndex = 3;
@@ -75,7 +79,7 @@
             // 
             // updateButton
             // 
-            this.updateButton.Location = new System.Drawing.Point(273, 364);
+            this.updateButton.Location = new System.Drawing.Point(273, 389);
             this.updateButton.Name = "updateButton";
             this.updateButton.Size = new System.Drawing.Size(75, 23);
             this.updateButton.TabIndex = 4;
@@ -95,7 +99,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(19, 84);
+            this.label2.Location = new System.Drawing.Point(19, 109);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(67, 13);
             this.label2.TabIndex = 27;
@@ -107,7 +111,7 @@
             this.filesComboBox.Location = new System.Drawing.Point(99, 28);
             this.filesComboBox.Name = "filesComboBox";
             this.filesComboBox.Size = new System.Drawing.Size(330, 21);
-            this.filesComboBox.TabIndex = 28;
+            this.filesComboBox.TabIndex = 0;
             // 
             // label3
             // 
@@ -118,11 +122,31 @@
             this.label3.TabIndex = 29;
             this.label3.Text = "Cycle Filename";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(316, 78);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(64, 13);
+            this.label4.TabIndex = 30;
+            this.label4.Text = "Dispatched:";
+            // 
+            // dispatchedCountLabel
+            // 
+            this.dispatchedCountLabel.Location = new System.Drawing.Point(386, 78);
+            this.dispatchedCountLabel.Name = "dispatchedCountLabel";
+            this.dispatchedCountLabel.Size = new System.Drawing.Size(43, 13);
+            this.dispatchedCountLabel.TabIndex = 31;
+            this.dispatchedCountLabel.Text = "0";
+            this.dispatchedCountLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
             // DispatchForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(462, 412);
+            this.ClientSize = new System.Drawing.Size(512, 453);
+            this.Controls.Add(this.dispatchedCountLabel);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.filesComboBox);
             this.Controls.Add(this.label2);
@@ -133,9 +157,11 @@
             this.Controls.Add(this.accountNoTextBox);
             this.Controls.Add(this.messenger);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "DispatchForm";
             this.Text = "Dispatch";
+            this.Activated += new System.EventHandler(this.DispatchForm_Activated);
             this.Load += new System.EventHandler(this.DispatchForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -153,5 +179,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox filesComboBox;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label dispatchedCountLabel;
     }
 }
